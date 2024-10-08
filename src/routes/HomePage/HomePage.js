@@ -1,18 +1,18 @@
-import { useTodos } from './useTodos'
-import { TodoHeader } from '../TodoHeader';
-import { TodoCounter } from '../TodoCounter/TodoCounter';
-import { TodoSearch } from '../TodoSearch/TodoSearch';
-import { TodoList } from '../TodoList/TodoList';
-import { TodoItem } from '../TodoItem/TodoItem';
-import { TodosLoading } from '../TodosLoading/TodosLoading';
-import { TodosError } from '../TodosError/TodosError';
-import { TodosEmpty } from '../TodosEmpty/TodosEmpty';
-import { CreateTodoButton } from '../CreateButton/CreateTodoButton';
-import { Modal } from '../Modal/Modal';
-import { TodoForm } from '../TodoForm/TodoForm';
-import {ChangeAlertWithStorageListener} from '../ChangeAlert'
+import { useTodos } from '../useTodos'
+import { TodoHeader } from '../../ui/TodoHeader';
+import { TodoCounter } from '../../ui/TodoCounter/TodoCounter';
+import { TodoSearch } from '../../ui/TodoSearch/TodoSearch';
+import { TodoList } from '../../ui/TodoList/TodoList';
+import { TodoItem } from '../../ui/TodoItem/TodoItem';
+import { TodosLoading } from '../../ui/TodosLoading/TodosLoading';
+import { TodosError } from '../../ui/TodosError/TodosError';
+import { TodosEmpty } from '../../ui/TodosEmpty/TodosEmpty';
+import { CreateTodoButton } from '../../ui/CreateButton/CreateTodoButton';
+import { Modal } from '../../ui/Modal/Modal';
+import { TodoForm } from '../../ui/TodoForm/TodoForm';
+import {ChangeAlertWithStorageListener} from '../../ui/ChangeAlert'
 
-function App() {
+function HomePage() {
 
   const {states, updaterStates} = useTodos()
   const {
@@ -84,4 +84,4 @@ function App() {
   );
 }
 
-export default App;
+export {HomePage};
