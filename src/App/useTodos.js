@@ -51,20 +51,25 @@ function useTodos() {
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
     }
-    return {
-            loading,
-            error,
-            completedTodos,
-            totalTodos,
-            searchValue,
-            openModal,
-            searchedTodos,
-            setSearchValue,
-            completeTodo,
-            deleteTodo,
-            setOpenModal,
-            addTodo,
-            sincronizeTodos
-        }
+
+    const states = {
+        loading,
+        error,
+        completedTodos, // Variables de estado que se envian a el componente APP.
+        totalTodos,
+        searchedTodos,
+        searchValue,
+        openModal,
+    } 
+    const updaterStates = {
+        setSearchValue,
+        completeTodo, // Actualizadores y funciones de estado
+        deleteTodo,
+        setOpenModal,
+        addTodo,
+        sincronizeTodos,
+    }
+
+    return { states, updaterStates }
 }
 export { useTodos };
