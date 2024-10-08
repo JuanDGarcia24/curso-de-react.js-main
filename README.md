@@ -1,6 +1,4 @@
-# Sitio Desplegado:
 
-https://xiomaraescobar.github.io/curso-de-react.js/
 
 
 # Repositorio base del Curso de Introducción a React.js en Platzi
