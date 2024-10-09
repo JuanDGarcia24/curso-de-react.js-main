@@ -11,10 +11,8 @@ function EditPage() {
 
     let todoText;
     
-    console.log(location)
     if (location.state?.todo) {
         todoText = location.state.todo.text;
-        console.log('if ',todoText);
         
     } else if (loading) {
         return <p>Cargando...</p>
