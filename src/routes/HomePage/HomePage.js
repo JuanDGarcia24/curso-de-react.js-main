@@ -1,4 +1,5 @@
 import { useTodos } from '../useTodos'
+import { useNavigate } from 'react-router-dom';
 import { TodoHeader } from '../../ui/TodoHeader';
 import { TodoCounter } from '../../ui/TodoCounter/TodoCounter';
 import { TodoSearch } from '../../ui/TodoSearch/TodoSearch';
@@ -14,12 +15,13 @@ import {ChangeAlertWithStorageListener} from '../../ui/ChangeAlert'
 
 function HomePage() {
 
+    const navigate  = useNavigate();
   const {states, updaterStates} = useTodos()
   const {
     loading,
     error,
     searchedTodos,
-    openModal,
+    // openModal,
     searchValue, 
     completedTodos,
     totalTodos,
@@ -28,8 +30,8 @@ function HomePage() {
   const {
     completeTodo,
     deleteTodo,
-    setOpenModal,
-    addTodo,
+    // setOpenModal,
+    //addTodo,
     setSearchValue,
     sincronizeTodos
   } = updaterStates;
@@ -63,23 +65,26 @@ function HomePage() {
               key={todo.id}
               text={todo.text}
               completed={todo.completed}
-              onEdit={() => console.log('Editar')}
+              onEdit={() => navigate('/edit/' + todo.id)}
               onComplete={() => completeTodo(todo.id)}
               onDelete={() => deleteTodo(todo.id)}
             />
           )}>
       </TodoList>
 
-      <CreateTodoButton setOpenModal={setOpenModal} />
-      <ChangeAlertWithStorageListener sincronize={sincronizeTodos}/>
-      {openModal &&
+      {/* {openModal &&
         <Modal>
           <TodoForm
             addTodo={addTodo}
             setOpenModal={setOpenModal}
           />
         </Modal>
-      }
+      } */}
+      <CreateTodoButton 
+        onClick={() => navigate('/new')}
+        // setOpenModal={setOpenModal} 
+      />
+      <ChangeAlertWithStorageListener sincronize={sincronizeTodos}/>
      
     </>
   );

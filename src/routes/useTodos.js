@@ -11,7 +11,7 @@ function useTodos() {
         error,
     } = useLocalStorage('Todo_v2', []);
     const [searchValue, setSearchValue] = React.useState('');
-    const [openModal, setOpenModal] = React.useState(false);
+    // const [openModal, setOpenModal] = React.useState(false);
 
     // counter
     // aca se le asigna a completedTodos, la cantidad ya completados.
@@ -45,6 +45,15 @@ function useTodos() {
         saveTodos(newTodos);
     }
 
+    const editTodo = (id, newText) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex(
+            (todo) => todo.id === id
+        );
+        newTodos[todoIndex].text = newText;
+        saveTodos(newTodos);
+    }
+
     const deleteTodo = (id) => {
         const newTodos = [...todos];
         const todoIndex = newTodos.findIndex(
@@ -61,15 +70,16 @@ function useTodos() {
         totalTodos,
         searchedTodos,
         searchValue,
-        openModal,
+        // openModal,
     } 
     const updaterStates = {
         setSearchValue,
         completeTodo, // Actualizadores y funciones de estado
         deleteTodo,
-        setOpenModal,
+        // setOpenModal,
         addTodo,
         sincronizeTodos,
+        editTodo
     }
 
     return { states, updaterStates }

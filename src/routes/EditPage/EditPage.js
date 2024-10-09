@@ -1,9 +1,18 @@
-import React from 'react'
+import { TodoForm } from '../../ui/TodoForm/TodoForm'
+import { useTodos } from '../useTodos'
+import { useParams } from 'react-router-dom';
 
 function EditPage() {
+
+    const {updaterStates} = useTodos()
+    const {editTodo} = updaterStates;
+    const {id} = useParams();
     return (
         <>
-            <h1>Hola editar</h1>
+            <TodoForm 
+            label="Editar TODO" 
+            submitText="Editar"
+            submitEvent={(newTodoValue) => editTodo(id, newTodoValue)} />
         </>
     )
 }
