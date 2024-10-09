@@ -6,19 +6,23 @@ function EditPage() {
     const location = useLocation()
     const {updaterStates, states} = useTodos()
     const {editTodo} = updaterStates;
-    const { loading,getTodo} = states;
+    const { loading, getTodo} = states;
     const {id} = useParams();
 
     let todoText;
-
-    if (location.states?.todo) {
-        todoText = location.states.todo.text;
+    
+    console.log(location)
+    if (location.state?.todo) {
+        todoText = location.state.todo.text;
+        console.log('if ',todoText);
+        
     } else if (loading) {
         return <p>Cargando...</p>
     } else {
         const todo = getTodo(id)
         todoText = todo.text;
     }
+
     return (
         <>
             <TodoForm 
