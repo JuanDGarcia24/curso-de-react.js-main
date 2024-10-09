@@ -1,16 +1,28 @@
+import { useEffect } from 'react';
 import './TodoSearch.css';
 
-function TodoSearch({searchValue, setSearchValue, loading}) {
+function TodoSearch({searchValue, setSearchValue, loading, params, setParams}) {
+
+    const onSearchValue = (event) => {
+        setSearchValue(event.target.value)
+        let params = {
+            search: event.target.value 
+        }
+        setParams(params)
+    }   
+    useEffect(() => {
+        const search = params.get("search") ?? ""
+        setSearchValue(search)
+    }, [params])
 
     return (
         <input
+            type='text'
             className='TodoSearch'
             placeholder="Buscar Tareas"
             value={searchValue}
             disabled={loading}
-            onChange={(event) => {
-                setSearchValue(event.target.value);
-            }} />
+            onChange={onSearchValue} />
     );
 }
 export { TodoSearch };

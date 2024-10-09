@@ -1,5 +1,5 @@
 {
-  "name": "platzi-intro-react-base",
+  "name": "curso-de-react.js-main",
   "version": "0.1.0",
   "dependencies": {
     "react": "^18.3.1",
@@ -38,7 +38,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://xiomaraescobar.github.io/curso-de-react.js",
+  "homepage": "https://JuanDGarcia24.github.io/curso-de-react.js-main",
   "devDependencies": {
     "gh-pages": "^6.1.1"
   }
