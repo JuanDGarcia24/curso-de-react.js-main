@@ -68,9 +68,27 @@
     top: 10px;
     cursor: pointer;
 }
+
+.span-icon-edit {
+    color:rgb(164, 165, 164);
+    position: absolute;
+    font-size: 1.7rem;
+    right: 10px;
+    top: 40px;
+    cursor: pointer;
+}
+
+.span-icon-edit:hover {
+    color:#61DAFA;
+    position: absolute;
+    font-size: 1.7rem;
+    right: 10px;
+    top: 40px;
+    cursor: pointer;
+}
 .span-icon-completed {
     font-size: 1.5rem;
-    color: rgb(21, 255, 0);
+    color: #61DAFA;
     cursor: pointer;
 }
 .span-icon-uncompleted {
@@ -81,6 +99,6 @@
 
 .span-icon-uncompleted:hover {
     font-size: 1.5rem;
-    color: rgb(21, 255, 0);
+    color: #61DAFA;
     cursor: pointer;
 }

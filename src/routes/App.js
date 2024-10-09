@@ -1,4 +1,3 @@
-import React from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import { HomePage } from './HomePage/HomePage';
 import { NewPage } from './NewPage/NewPage';
@@ -14,7 +13,7 @@ function App() {
         <Route path='/' element={<HomePage />}/>
         <Route path='/new' element={<NewPage />}/>
         <Route path='/edit/:id' element={<EditPage />}/>
-        <Route path='/*' element={<p>Page Not Found</p>}/>
+        <Route path='*' element={<p>Page Not Found</p>}/>
 
 
       </Routes>

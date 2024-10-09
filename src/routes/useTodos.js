@@ -9,7 +9,7 @@ function useTodos() {
         sincronizeItem: sincronizeTodos,
         loading,
         error,
-    } = useLocalStorage('Todo_v1', []);
+    } = useLocalStorage('Todo_v2', []);
     const [searchValue, setSearchValue] = React.useState('');
     const [openModal, setOpenModal] = React.useState(false);
 
@@ -26,27 +26,29 @@ function useTodos() {
         });
 
     const addTodo = (text) => {
+        const id = newTodoId()
         const newTodos = [...todos];
         newTodos.push({
             text: text,
             completed: false,
+            id,
         });
         saveTodos(newTodos)
     };
 
-    const completeTodo = (text) => {
+    const completeTodo = (id) => {
         const newTodos = [...todos];
         const todoIndex = newTodos.findIndex(
-            (todo) => todo.text === text
+            (todo) => todo.id === id
         );
         newTodos[todoIndex].completed = true;
         saveTodos(newTodos);
     }
 
-    const deleteTodo = (text) => {
+    const deleteTodo = (id) => {
         const newTodos = [...todos];
         const todoIndex = newTodos.findIndex(
-            (todo) => todo.text === text
+            (todo) => todo.id === id
         );
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
@@ -71,5 +73,9 @@ function useTodos() {
     }
 
     return { states, updaterStates }
+}
+
+function newTodoId() {
+    return Date.now().toString(16);
 }
 export { useTodos };
