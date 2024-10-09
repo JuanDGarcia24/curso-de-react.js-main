@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 function TodoForm(props) {
 
-    const [newTodoValue, setNewTodoValue] = React.useState('');
+    const [newTodoValue, setNewTodoValue] = React.useState(props.defaultTodoText || '');
     const navigate = useNavigate();
 
     const onSubmit = (event) => {

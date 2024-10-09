@@ -9,8 +9,8 @@ import { TodosLoading } from '../../ui/TodosLoading/TodosLoading';
 import { TodosError } from '../../ui/TodosError/TodosError';
 import { TodosEmpty } from '../../ui/TodosEmpty/TodosEmpty';
 import { CreateTodoButton } from '../../ui/CreateButton/CreateTodoButton';
-import { Modal } from '../../ui/Modal/Modal';
-import { TodoForm } from '../../ui/TodoForm/TodoForm';
+// import { Modal } from '../../ui/Modal/Modal';
+// import { TodoForm } from '../../ui/TodoForm/TodoForm';
 import {ChangeAlertWithStorageListener} from '../../ui/ChangeAlert'
 
 function HomePage() {
@@ -65,7 +65,7 @@ function HomePage() {
               key={todo.id}
               text={todo.text}
               completed={todo.completed}
-              onEdit={() => navigate('/edit/' + todo.id)}
+              onEdit={() => {navigate('/edit/' + todo.id, {states: {todo} })}}
               onComplete={() => completeTodo(todo.id)}
               onDelete={() => deleteTodo(todo.id)}
             />

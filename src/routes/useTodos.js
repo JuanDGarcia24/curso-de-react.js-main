@@ -25,6 +25,7 @@ function useTodos() {
             return todoText.includes(todoTextSearch);
         });
 
+
     const addTodo = (text) => {
         const id = newTodoId()
         const newTodos = [...todos];
@@ -35,6 +36,14 @@ function useTodos() {
         });
         saveTodos(newTodos)
     };
+
+    const getTodo = (id) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex(
+            (todo) => todo.id === id
+        );
+        return newTodos[todoIndex]
+    }
 
     const completeTodo = (id) => {
         const newTodos = [...todos];
@@ -71,7 +80,8 @@ function useTodos() {
         searchedTodos,
         searchValue,
         // openModal,
-    } 
+        getTodo,
+    }
     const updaterStates = {
         setSearchValue,
         completeTodo, // Actualizadores y funciones de estado
